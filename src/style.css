@@ -1,0 +1,425 @@
+.container {
+
+  margin: 0 auto;
+  padding: 20px 0px  0px;
+  font-family: Arial, sans-serif;
+
+}
+
+body {
+  background-color: #F3B391;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+.content-container {
+  padding-top: 280px; 
+
+}
+
+.dogbreed-list {
+  padding-top: 160px;
+  margin-top: 50px;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px; 
+  background-image: url('https://images.unsplash.com/photo-1616781296073-65d3f087de41?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  border-bottom:5px solid #595a5a;
+}
+
+.Tabs {
+  
+  position: absolute;
+  margin-bottom: 20px;
+  margin-left:0px;
+  background-color: #CBF3F0;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  left:0;
+}
+
+.tab-background {
+  background-color: #fff;
+}
+
+
+.TabList {
+  display: flex;
+  list-style-type: none;
+  margin: 0px 0px 0px 30px;
+  padding: 0;
+}
+
+.Tab {
+  
+
+  background-color: #CBF3F0;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  padding: 20px;
+}
+
+
+.Tab:hover {
+  background-color: #3fa8d8;
+}
+
+.Tab:focus {
+  outline: none;
+  border-bottom: 2px solid #007bff;
+  background-color: #fff;
+}
+
+.Tab:active {
+  background-color: #fff;
+  border-bottom: 2px solid #007bff;
+}
+
+.TabPanel {
+  width: 100%
+}
+
+
+.TabPanel > div {
+  display: flex;
+  align-items: center; 
+}
+
+.TabPanel.active {
+  display: block;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.link-style {
+  text-decoration: underline
+  ;
+  color: black;
+  font-weight: bolder;
+}
+
+.dogbreed-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dogbreed-list li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.info-card {
+  margin: 50px auto;
+  width: 50%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  background-color:  #e9e0e0;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0px;
+  margin-right: 0px; 
+  border: none;
+}
+
+.pagination button {
+  margin: 0px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+}
+
+.breed-entry {
+  height: 300px;
+}
+
+
+#city-input {
+  width: 50%;
+}
+
+.breeds-display {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  
+}
+
+.breed-item {
+  background-color:  rgba(255, 2255,255, .7);
+  border-radius: 8px;
+}
+.breed-list {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.pet-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.pet-entry {
+  width: calc(31.33% - 10px);
+  margin: 15px;
+  background-color: #e9e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 535px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.pet-pic {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 0px;
+  text-align: center;
+  position: relative;
+}
+
+.pet-name {
+  color:#24a0d1;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.pet-pic img {
+  max-width: 100%;
+  height: 375px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.breed-pic {
+  margin-right: 20px;
+}
+
+.breed-pic img {
+  max-width: 150px;
+  border-radius: 5px;
+  margin-right: 20px;
+  float: left;
+}
+
+.breed-info {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.b-right {
+  float: right;
+}
+
+.pet-gender {
+  padding: 7px;
+}
+
+.pet-info {
+  margin-top: auto;
+  box-sizing: border-box;
+  bottom: 0;
+  padding: 10px;
+  left: 0;
+  width: 100%;
+  flex-basis: 100%;
+  margin-bottom:10px;
+  position: absolute;
+}
+
+.breed-small-details {
+  display: flex;
+
+}
+
+.pet-details {
+  flex-basis: 100%;
+}
+
+
+.pet-small-details {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.breed-details {
+  margin-left: 15px;
+  margin-right: 15px;
+  float:right;
+  
+  
+}
+
+.breed-stats {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.breed-stats p {
+  flex-basis: 23.33%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px; 
+}
+
+
+.detail-stats p {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: #c2acac;
+  flex-basis: 23.33%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px; 
+}
+
+
+
+.detail-description {
+  margin-top: 20px;
+}
+
+.back-to-search {
+  display: block;
+  margin-top: 20px;
+  text-align: right;
+  text-decoration: none;
+  color: #333;
+}
+
+.back-to-search:hover {
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .content-container {
+    padding-top: 120px;
+    width: 220%;
+  }
+  .banner {
+    height: 300px;
+    width: 203%;
+  }
+  .Tabs {
+    padding: 5px 10px;
+    top:300px;
+    width: 200%;
+  }
+  .breed-entry {
+    height: 280px;
+  }
+
+  
+  .pet-entry {
+    width: calc(70%);
+    margin: 15px;
+    background-color: #e9e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: 535px;
+    display: block;
+  }
+
+}
+
+
+
+
+
+@media (max-width: 576px) {
+  .content-container {
+    margin-left: 100px;
+    padding-top: 40px;
+    width: 300%;
+  }
+  .banner {
+    height: 200px;
+    width: 340%;
+  }
+  .detail-description {
+    display: none;
+  }
+  .Tabs {
+    padding: 5px;
+    top: 200px;
+    width: 340%;
+  }
+  
+  .breed-entry {
+    height: 300px;
+  }
+
+  .breed-info {
+    font-size: x-large;
+
+  }
+  .detail-stats {
+    display: block;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+
+  .pet-pic img {
+    max-width: 100%;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+
