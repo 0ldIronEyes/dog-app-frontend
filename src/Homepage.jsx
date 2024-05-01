@@ -30,8 +30,8 @@ function Homepage() {
 
   async function getByLifeSpan() {
     try {
-      const response = await axios.get('https://dog-app-backend.onrender.com/', {
-        //params: {age : minLifeSpan} 
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/age', {
+        params: {age : minLifeSpan} 
       });
       console.log(response.data);
       setDogBreeds(response.data);
