@@ -16,7 +16,7 @@ const BreedDetail = () => {
   useEffect(() => {
     const fetchBreedDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/id', {
+        const response = await axios.get('https://dog-app-backend.onrender.com/api/id', {
             params: {id : id} 
         });
         setBreed(response.data[0]);
@@ -31,7 +31,7 @@ const BreedDetail = () => {
   const handleLocSearch = async (loc) =>  {
     try {
       console.log('breed',breed.breedName);
-      const response =await axios.get('http://localhost:5000/api/find',
+      const response =await axios.get('https://dog-app-backend.onrender.com/api/find',
         {
           params: {
               breed: breed.breedName,

@@ -20,7 +20,6 @@ const DogBreedList = ({ dogBreeds }) => {
 
 
   const handleNavigateToDetail = (breedID) => {
-    console.log(breedID);
     nav( '/detail' , { state: { breedID: breedID } });
 
   };
