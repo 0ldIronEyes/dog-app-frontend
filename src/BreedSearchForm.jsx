@@ -10,7 +10,7 @@ const BreedSearchForm = ({ setDogBreeds }) => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get('http://localhost:5000/api/breeds', {
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/breeds', {
           params: {search: searchTerm} 
         });
       setDogBreeds(response.data);

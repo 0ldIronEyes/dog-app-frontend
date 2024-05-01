@@ -42,7 +42,7 @@ function Homepage() {
 
 async function getbyMaxWeight() {
     try {
-      const response = await axios.get('http://localhost:5000/api/weight', {
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/weight', {
         params: {weightLimit : maxWeight} 
       });
       console.log(response.data);
@@ -54,7 +54,7 @@ async function getbyMaxWeight() {
 
   async function getbyMaxHeight() {
     try {
-      const response = await axios.get('http://localhost:5000/api/height', {
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/height', {
         params: {heightLimit : maxHeight} 
       });
       console.log(response.data);
