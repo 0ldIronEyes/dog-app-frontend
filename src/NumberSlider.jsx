@@ -10,7 +10,7 @@ const NumberSlider = ({ title, Number, setNumber, getFunction }) => {
         id="lifeSpanSlider"
         name="lifeSpanSlider"
         min={7}
-        max={16}
+        max={18}
         value={Number}
         onChange={(e) => setNumber(parseInt(e.target.value))}
       />

@@ -51,14 +51,14 @@ class DogBreedApi {
   /** Get token for login from username, password. */
 
   static async login(data) {
-    let res = await this.request(`auth/token`, data, "post");
+    let res = await this.request(`users/token`, data, "post");
     return res.token;
   }
 
   /** Signup for site. */
 
   static async signup(data) {
-    let res = await this.request(`auth/register`, data, "post");
+    let res = await this.request(`users/register`, data, "post");
     return res.token;
   }
 
@@ -68,7 +68,120 @@ class DogBreedApi {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
-}
 
+  /** Add a dog breed to a user's profile to be displayed as a favorite */
+  static async addToFavorites(username, breedname, life, height, weight)
+  {
+    let res = await axios.post(`${BASE_URL}/users/${username}/favorites/add/${breedname}`, null,
+     { params: { life: life, height: height, weight: weight} }
+    );
+    return res.data.favorited;
+  }
+
+  /** Add a dog breed to a user's profile to be displayed as a favorite */
+  static async removeFromFavorites(username, breedname)
+  {
+    let res = await axios.post(`${BASE_URL}/users/${username}/favorites/remove/${breedname}`,
+    );
+    return res.favorited;
+  }
+
+  /** Get dog breed info stored in server database */
+  static async getDogBreed(breed) {
+    let res = await this.request(`breeds/${breed}`);
+    console.log(res);
+    return res.breedinfo;
+  }
+
+
+  /** query dogbreeddbapi to filter based on height */
+  static async getByHeight(height)
+  {
+    try{
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/height', {
+        params: {heightLimit : height} 
+      });
+      return response.data;
+    }
+    catch(error)
+    {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  }
+
+  /** query dogbreeddbapi to filter based on weight */
+  static async getByWeight(weight){
+    try{
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/weight', {
+        params: {weightLimit : weight} 
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+
+    /** query dogbreeddbapi to filter based on lifewpan */
+  static async getByLifespan(life)
+  {
+    try{
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/age', {
+        params: {age : life} 
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  }
+
+
+    /** query dogbreeddbapi to filter based on name */
+    static async getByName(name)
+    {
+      try {
+        const response = await axios.get('https://dog-app-backend.onrender.com/api/breeds', {
+            params: {search: name} 
+          });
+       return response.data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+  /** query dogbreeddbapi to get a specific dog's information by id*/
+  static async getByID(id)
+  {
+      try {
+        const response = await axios.get('https://dog-app-backend.onrender.com/api/id', {
+            params: {id : id} 
+        });
+        return response.data[0];
+      } catch (error) {
+        console.error('Error fetching breed details:', error);
+      }
+  }
+
+  /** query petfinder api for available pets based on name of breed and zip code to search in */
+  static async searchForPets(breed, location)
+  {
+    try {
+      const response = await axios.get('https://dog-app-backend.onrender.com/api/find',
+      {
+        params: {
+          breed: breed,
+          location : location
+         }
+      });
+      return response.data;
+    } catch(error)
+    {
+      console.error('Cant find pets of breed:', error);
+    }
+  }
+  
+}
 
 export default DogBreedApi;

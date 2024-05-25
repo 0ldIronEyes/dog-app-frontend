@@ -1,22 +1,27 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
+
+import DogBreedApi from './api';
 import './form.css';
 
-
+//Component for first tab of Search page. For searching for breeds by name
 const BreedSearchForm = ({ setDogBreeds }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.get('https://dog-app-backend.onrender.com/api/breeds', {
-          params: {search: searchTerm} 
-        });
-      setDogBreeds(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    try{
+      console.log(searchTerm);
+      const dogs = await DogBreedApi.getByName(searchTerm);
+      setDogBreeds(dogs);
+      console.log(dogs);
     }
+    catch(error)
+    {
+      console.error('Error fetching pets by name:', error);
+    }
+  
   };
 
   return (

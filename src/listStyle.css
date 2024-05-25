@@ -56,3 +56,24 @@
     flex: 0 0 30%;
     text-align: center;
   }
+
+  .fav-button {
+    background-color: rgb(0, 178, 209);
+    justify-self: end;
+    margin-left: 1000px;
+  }
+
+  .fav-button-active {
+    background-color: rgb(10, 109, 122);
+    justify-self: end;
+    margin-left: 1000px;
+  }
+
+
+  @media (max-width: 1068px) {
+  .breed-recommendations {
+    font-family: Arial, sans-serif;
+    padding-top: 40px;
+    margin: 20px;
+  }
+}

@@ -1,108 +1,98 @@
 import React, { useContext, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserContext from "./UserContext.js";
 import BreedSearchForm from "./BreedSearchForm.jsx";
 import NumberSlider from './NumberSlider.jsx';
 import DogBreedList from "./BreedList.jsx";
-import axios from 'axios';
+import HomeSignedOut from "./HomeSignedOut.jsx";
+import Navigation from "./Navigation.jsx";
+import DogBreedApi from "./api.js";
 import './style.css';
 import bannerimage from './assets/dog_bg.png';
 
-
 /** Homepage of site.
  *
- * Shows welcome message or login/register buttons.
- *
+ * Shows welcome message or login/register buttons if not logged in.
+ * Once logged in, displays tabs for user to search for dog breeds by, and displays returned dogs underneath it
+ * Also diplays the navigation banner above the tabs for profile management.
  * Routed at /
- *
- * Routes -> Homepage
  */
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);
   console.debug("Homepage", "currentUser=", currentUser);
+  const navigate = useNavigate();
   const [dogBreeds, setDogBreeds] = useState([]);
   const [minLifeSpan, setMinLifeSpan] = useState(7);
   const [maxWeight, setMaxWeight] = useState(7);
   const [maxHeight, setMaxHeight] = useState(7);
+  const [selectedTab, setSelectedTab] = useState(0); 
 
   async function getByLifeSpan() {
-    try {
-      const response = await axios.get('https://dog-app-backend.onrender.com/api/age', {
-        params: {age : minLifeSpan} 
-      });
-      console.log(response.data);
-      setDogBreeds(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+    const dogs = await DogBreedApi.getByLifespan(minLifeSpan);
+    setDogBreeds(dogs);
   }
 
-async function getbyMaxWeight() {
-    try {
-      const response = await axios.get('https://dog-app-backend.onrender.com/api/weight', {
-        params: {weightLimit : maxWeight} 
-      });
-      console.log(response.data);
-      setDogBreeds(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+  async function getbyMaxWeight() {
+    const dogs = await DogBreedApi.getByWeight(maxWeight);
+    setDogBreeds(dogs);
   }
 
   async function getbyMaxHeight() {
-    try {
-      const response = await axios.get('https://dog-app-backend.onrender.com/api/height', {
-        params: {heightLimit : maxHeight} 
-      });
-      console.log(response.data);
-      setDogBreeds(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+    const dogs = await DogBreedApi.getByHeight(maxHeight);
+    setDogBreeds(dogs);
   }
 
+// Clear dogBreeds array if the first tab is clicked
+  const handleTabSelect = (index) => {
+    setSelectedTab(index);
+    if (index === 3) {
+      setDogBreeds([]); 
+    }
+  };
+
+  if (!currentUser) {
+    return <HomeSignedOut />;
+  }
 
   return (
-      <div className="Homepage">
-        <div className="container text-center">
-                <div>
-                  <h1> Dog Breed Finder </h1>
-                  <div className="banner" style={{backgroundImage: `url(${bannerimage})`}}></div>
-                  <div className="content-container">
-                  <div>
-                  <Tabs className="Tabs">
-                    <TabList className="TabList">
-                       <Tab className="Tab"><h4> Search by Breed</h4></Tab>
-                        <Tab className="Tab" > <h4>Search by Life Span</h4></Tab>
-                        <Tab className="Tab"><h4>Search by Max Weight</h4></Tab>
-                        <Tab className="Tab" ><h4>Search by Max Height </h4></Tab>
-                    </TabList>
-                    
-                    <TabPanel className="TabPanel">
-                       <BreedSearchForm setDogBreeds={setDogBreeds} />
-                    </TabPanel>
-
-                    <TabPanel className="TabPanel">
-                       <NumberSlider title="Search by Life Span" Number={minLifeSpan} setNumber={setMinLifeSpan} getFunction={getByLifeSpan}/>
-                  </TabPanel>
-                  <TabPanel className="TabPanel">
-                       <NumberSlider title="Search by maximum Weight" Number={maxWeight} setNumber={setMaxWeight} getFunction={getbyMaxWeight}/>
-                  </TabPanel>
-                  <TabPanel className="TabPanel" >
-                       <NumberSlider title="Search by maximum Height" Number={maxHeight} setNumber={setMaxHeight} getFunction={getbyMaxHeight} />
-                  </TabPanel>
-                  </Tabs>
-                  </div>
-                  <div className="dogbreed-list">
-                     <DogBreedList dogBreeds={dogBreeds} />
-                  </div>
-                  </div>
-                </div>                 
+    <div className="Homepage">
+      <div className="container text-center">
+        <div>
+          <h1> Dog Breed Finder </h1>
+          <div className="banner" style={{backgroundImage: `url(${bannerimage})`}}></div>
+          <div className="content-container">
+            <div>
+              <Navigation />
+              <Tabs className="Tabs" selectedIndex={selectedTab} onSelect={handleTabSelect}>
+                <TabList className="TabList">
+                  <Tab className="Tab"><h4>Search by Life Span</h4></Tab>
+                  <Tab className="Tab"><h4>Search by Max Weight</h4></Tab>
+                  <Tab className="Tab"><h4>Search by Max Height</h4></Tab>
+                  <Tab className="Tab"><h4> Search by Breed</h4></Tab>
+                </TabList>
+                <TabPanel className="TabPanel">
+                  <NumberSlider title="Search by Life Span" Number={minLifeSpan} setNumber={setMinLifeSpan} getFunction={getByLifeSpan} />
+                </TabPanel>
+                <TabPanel className="TabPanel">
+                  <NumberSlider title="Search by maximum Weight" Number={maxWeight} setNumber={setMaxWeight} getFunction={getbyMaxWeight} />
+                </TabPanel>
+                <TabPanel className="TabPanel">
+                  <NumberSlider title="Search by maximum Height" Number={maxHeight} setNumber={setMaxHeight} getFunction={getbyMaxHeight} />
+                </TabPanel>
+                <TabPanel className="TabPanel">
+                  <BreedSearchForm setDogBreeds={setDogBreeds} />
+                </TabPanel>
+              </Tabs>
+            </div>
+            <div className={`${selectedTab === 3 ? 'dogbreed-list-name' : 'dogbreed-list'}`}>
+              <DogBreedList dogBreeds={dogBreeds} />
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   );
 }
 
