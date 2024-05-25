@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* LoginForm Container */
+.LoginForm {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.formRow {
+    display: flex;
+    gap: 10px;
+}
+
+/* Form Body */
+.formBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form Field */
+.formField {
+    margin: 20px;
+}
+
+/* Form Labels */
+.formField label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Form Inputs */
+.formInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc
+}
+
+.submitButton {
+    padding: 15px 25px;
+}
