@@ -79,6 +79,7 @@ const removeFromFavorites = async(breedName) =>
   console.log(breedInfo);
   return (
     <div>
+      <div className="user-info-container">
         <div className="user-info">
         <h1>Your Info</h1>
           <div className="info">
@@ -90,9 +91,9 @@ const removeFromFavorites = async(breedName) =>
           </div>
           <div className="back-button"><Link to={`/`}> Back to Search </Link>  </div>
         </div>
-
-        <div>
-          <div> <h3>Dog Breeds You've favorited </h3></div>
+      </div>
+      <div> <h3>Dog Breeds You've favorited </h3></div>
+        <div className="user-info-container">
           <div className="user-info">
           <ul className="breed-list">
           {breedInfo.map((breed, idx) => (

@@ -47,7 +47,7 @@ const DogBreedList = ({ dogBreeds }) => {
 
           return (
           <li  className="breed-item" key={breed.id}> 
-              <div> <button className={buttonClass} onClick={(event) => buttonToggle(event,breed.breedName, breed.maxLifeSpan, breed.maxHeightInches, breed.maxWeightPounds)}>
+              <div className="button-div"> <button className={buttonClass} onClick={(event) => buttonToggle(event,breed.breedName, breed.maxLifeSpan, breed.maxHeightInches, breed.maxWeightPounds)}>
                    {favorited} </button>
               </div>
            <div className="breed-name" ><Link to={`/petList/${breed.id}`}>{breed.breedName}</Link>   </div>

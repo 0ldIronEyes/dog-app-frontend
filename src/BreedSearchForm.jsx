@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import DogBreedApi from './api';
-import './form.css';
+//import './form.css';
 
 //Component for first tab of Search page. For searching for breeds by name
 const BreedSearchForm = ({ setDogBreeds }) => {

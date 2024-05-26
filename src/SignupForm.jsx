@@ -2,17 +2,11 @@ import React, { useState, useContext } from "react";
 import UserContext from "./UserContext";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert.jsx";
-import "./LoginForm.jsx";
+import "./loginform.css";
 
 /** Signup form.
  *
- * Shows form and manages update to state on changes.
- * On submission:
- * - calls signup function prop
- * - redirects to /companies route
- *
- * Routes -> SignupForm -> Alert
- * Routed as /signup
+ * Called from HomeSignedOut
  */
 
 function SignupForm() {
@@ -37,7 +31,7 @@ function SignupForm() {
 */
   /** Handle form submit:
    *
-   * Calls login func prop and, if successful, redirect to /companies.
+   * 
    */
 
   async function handleSubmit(evt) {

@@ -33,10 +33,11 @@
 
 .back-button {
   background-color: rgb(81, 130, 160);
-  margin: 12px;
-  padding: 8px;
+  margin:0 auto;
+  display:block;
+  padding:10px;
+  max-width: 120px;
   border-radius: 5px;
-  align-self: center;
   color: #fff;
 }
 
@@ -55,7 +56,9 @@
 
 #save-changes-btn {
     display: block;
-    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    width: 200px;
     padding: 10px;
     background-color: #28a745;
     color: #fff;
@@ -83,6 +86,13 @@
 }
 .breed-name:hover {
     cursor: pointer;
+}
+
+.user-info-container {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .user-info {

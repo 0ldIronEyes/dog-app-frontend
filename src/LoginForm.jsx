@@ -6,13 +6,8 @@ import Alert from "./Alert";
 
 /** Login form.
  *
- * Shows form and manages update to state on changes.
- * On submission:
- * - calls login function prop
- * - redirects to /companies route
- *
- * Routes -> LoginForm -> Alert
- * Routed as /login
+ * Called from HomeSignedOut
+ * 
  */
 
 function LoginForm() {

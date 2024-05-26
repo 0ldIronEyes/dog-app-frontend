@@ -6,9 +6,9 @@ import "./navigation.css";
 
 /** Navigation bar for site. Shows up on every page.
  *
- * When user is logged in, shows links to main areas of site. When not,
- * shows link to Login and Signup forms.
- *
+ * Shows links to user pages
+ * 
+ * Called from Homepage
  */
 
 function Navigation() {

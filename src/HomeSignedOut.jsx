@@ -10,9 +10,9 @@ import bannerimage from './assets/dog_bg.png';
 
 /** Homepage of site when not logged in.
  *
- * Routed at /
- *
- * Routes -> Homepage
+ * 
+ *Called from Homepage
+ * 
  */
 
 function HomeSignedOut() {

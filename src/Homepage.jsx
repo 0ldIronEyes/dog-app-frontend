@@ -44,13 +44,6 @@ function Homepage() {
     setDogBreeds(dogs);
   }
 
-// Clear dogBreeds array if the first tab is clicked
-  const handleTabSelect = (index) => {
-    setSelectedTab(index);
-    if (index === 3) {
-      setDogBreeds([]); 
-    }
-  };
 
   if (!currentUser) {
     return <HomeSignedOut />;
@@ -65,7 +58,7 @@ function Homepage() {
           <div className="content-container">
             <div>
               <Navigation />
-              <Tabs className="Tabs" selectedIndex={selectedTab} onSelect={handleTabSelect}>
+              <Tabs className="Tabs">
                 <TabList className="TabList">
                   <Tab className="Tab"><h4>Search by Life Span</h4></Tab>
                   <Tab className="Tab"><h4>Search by Max Weight</h4></Tab>
@@ -86,7 +79,7 @@ function Homepage() {
                 </TabPanel>
               </Tabs>
             </div>
-            <div className={`${selectedTab === 3 ? 'dogbreed-list-name' : 'dogbreed-list'}`}>
+            <div className='dogbreed-list'>
               <DogBreedList dogBreeds={dogBreeds} />
             </div>
           </div>
