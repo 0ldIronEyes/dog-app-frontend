@@ -2,7 +2,7 @@
 import axios from "axios";
 
 //const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://dog-app-backend.onrender.com";
 
 const API_KEY = 'FyGKpuRKqsV5w5M8A3VzaeuL51yB05eIuNKByVDsM526hPD99X';
 const secret = 'kkmUznOGbMAyVPOeoTmgTDJqllXi43MWEPNg3Mvl';
