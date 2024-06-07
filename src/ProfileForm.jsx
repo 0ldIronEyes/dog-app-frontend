@@ -29,13 +29,6 @@ function ProfileForm() {
   const [saveConfirmed, setSaveConfirmed] = useState(false);
   // const [saveConfirmed, setSaveConfirmed] = useTimedMessage()
 
-  console.debug(
-      "ProfileForm",
-      "currentUser=", currentUser,
-      "formData=", formData,
-      "formErrors=", formErrors,
-      "saveConfirmed=", saveConfirmed,
-  );
 
   /** on form submit:
    * - attempt save to backend & report any errors

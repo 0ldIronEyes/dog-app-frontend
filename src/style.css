@@ -16,6 +16,14 @@ h1 {
   color: #333;
 }
 
+.alert {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.red-text {
+  color:darkred;
+}
 
 .content-container {
   padding-top: 280px; 

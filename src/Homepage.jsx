@@ -21,7 +21,7 @@ import bannerimage from './assets/dog_bg.png';
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);
-  console.debug("Homepage", "currentUser=", currentUser);
+ // console.debug("Homepage", "currentUser=", currentUser);
   const navigate = useNavigate();
   const [dogBreeds, setDogBreeds] = useState([]);
   const [minLifeSpan, setMinLifeSpan] = useState(7);

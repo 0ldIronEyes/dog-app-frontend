@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 /** Presentational component for showing bootstrap-style alerts.
  *
@@ -6,14 +7,13 @@ import React from "react";
  **/
 
 function Alert({ type = "danger", messages = [] }) {
-  console.debug("Alert", "type=", type, "messages=", messages);
 
   return (
-      <div className={`alert alert-${type}`} role="alert">
+      <div className= "alert">
         {messages.map(error => (
-            <p className="mb-0 small" key={error}>
+            <div className="red-text" key={error}>
               {error}
-            </p>
+            </div>
         ))}
       </div>
   );

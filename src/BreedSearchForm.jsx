@@ -12,14 +12,12 @@ const BreedSearchForm = ({ setDogBreeds }) => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try{
-      console.log(searchTerm);
       const dogs = await DogBreedApi.getByName(searchTerm);
       setDogBreeds(dogs);
-      console.log(dogs);
     }
     catch(error)
     {
-      console.error('Error fetching pets by name:', error);
+     // console.error('Error fetching pets by name:', error);
     }
   
   };

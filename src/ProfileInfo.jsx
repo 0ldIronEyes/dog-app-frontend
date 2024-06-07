@@ -76,7 +76,6 @@ const removeFromFavorites = async(breedName) =>
     return <LoadingSpinner />;
   }
 
-  console.log(breedInfo);
   return (
     <div>
       <div className="user-info-container">

@@ -24,7 +24,7 @@ function App() {
   const [favorites, setFavorites] = useState(new Set([]));
 
   useEffect(function loadUserInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
+    //console.debug("App useEffect loadUserInfo", "token=", token);
 
     async function getCurrentUser() {
       if (token) {
@@ -35,7 +35,7 @@ function App() {
           setCurrentUser(currentUser);
           setFavorites(new Set(currentUser.breeds));
         } catch (err) {
-          console.error("App loadUserInfo: problem loading", err);
+          //console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null);
         }
       }
@@ -60,7 +60,7 @@ function App() {
       DogBreedApi.token = token;
       return { success: true };
     } catch (errors) {
-      console.error("signup failed", errors);
+      //console.error("signup failed", errors);
       return { success: false, errors };
     }
   }
@@ -73,7 +73,6 @@ function App() {
       DogBreedApi.token = token;
       return { success: true };
     } catch (errors) {
-      console.error("login failed", errors);
       return { success: false, errors };
     }
   }
@@ -103,7 +102,6 @@ function App() {
         <UserContext.Provider 
           value={{ currentUser, setCurrentUser, favorites, setFavorites, toggleFavorites, signup, login, logout}}>
             <Routes>
-              <Route  path="/petlist" element= {<DogBreedList />}>  </Route>
               <Route  path='/petlist/:id' element = {<PrivateRoute><BreedDetail /></PrivateRoute>} ></Route>
               <Route  path="/account/:username" element ={<PrivateRoute><ProfileInfo /></PrivateRoute>}> </Route>       
               <Route  path="/edit" element ={<PrivateRoute><ProfileForm /></PrivateRoute>}> </Route>                

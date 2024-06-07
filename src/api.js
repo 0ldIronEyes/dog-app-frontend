@@ -21,10 +21,28 @@ class DogBreedApi {
         : {};
 
     try {
-      return (await axios({ url, method, data, params, headers })).data;
+      const response = await axios({ url, method, data, params, headers });
+      return response.data;
     } catch (err) {
       console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
+      let message;
+
+      // Check if response is HTML
+      if (err.response && err.response.data && typeof err.response.data === 'string' && err.response.data.startsWith('<!DOCTYPE html>')) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(err.response.data, 'text/html');
+        const pre = doc.querySelector('pre');
+        if (pre) {
+          const text = pre.textContent;
+          const cutoffIndex = text.indexOf('at ');
+          message = cutoffIndex === -1 ? text : text.substring(0, cutoffIndex).trim();
+        } else {
+          message = 'An unknown error occurred';
+        }
+      } else {
+        message = err.response.data.error ? err.response.data.error.message : 'An unknown error occurred';
+      }
+
       throw Array.isArray(message) ? message : [message];
     }
   }
@@ -83,7 +101,6 @@ class DogBreedApi {
   /** Get dog breed info stored in server database */
   static async getDogBreed(breed) {
     let res = await this.request(`breeds/${breed}`);
-    console.log(res);
     return res.breedinfo;
   }
 

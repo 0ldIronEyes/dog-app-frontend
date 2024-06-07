@@ -24,7 +24,6 @@ const DogBreedList = ({ dogBreeds }) => {
   //toggle function for favoriting or unfavoriting breeds.
   function buttonToggle(event,breedName, lifeSpan, height, weight)
   {
-    console.log("toggle breedname: ", breedName);
     toggleFavorites(breedName, lifeSpan, height, weight);
     const button = event.target;
     if (favorites.has(breedName)) {

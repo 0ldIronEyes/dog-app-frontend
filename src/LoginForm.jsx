@@ -19,13 +19,6 @@ function LoginForm() {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  console.debug(
-      "LoginForm",
-      "login=", typeof login,
-      "formData=", formData,
-      "formErrors", formErrors,
-  );
-
   /** Handle form submit:
    *
    * Calls login func prop and, if successful, redirect to /companies.
@@ -80,11 +73,10 @@ function LoginForm() {
                       />
                     </div>
 
-                    {formErrors.length
-                        ? <Alert type="danger" messages={formErrors} />
-                        : null}
-
                   </div>
+                  {formErrors.length
+                        ? <Alert messages={formErrors} />
+                        : null}
                   <button
                         className="submitButton"
                         onSubmit={handleSubmit}

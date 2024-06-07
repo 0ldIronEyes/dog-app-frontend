@@ -36,7 +36,7 @@ const BreedDetail = () => {
         setBreed(response);
       } catch (error)
       {
-        console.error('Error fetching breed details:', error);
+       // console.error('Error fetching breed details:', error);
       }
     };
     fetchBreedDetails();
@@ -47,14 +47,13 @@ const BreedDetail = () => {
   //LocationSearchForm
   const handleLocSearch = async (loc) =>  {
     try {
-      console.log("parameters: ", breed.breedName, loc);
        const result = await DogBreedApi.searchForPets(breed.breedName, loc);
        setPets(result.animals);
        setLocation(loc);
        setError(false); 
     } catch (error) {
       setError(true); 
-      console.error('Error fetching pets:', error);
+     // console.error('Error fetching pets:', error);
     }
   };
 
