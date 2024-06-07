@@ -102,7 +102,7 @@ function App() {
         <UserContext.Provider 
           value={{ currentUser, setCurrentUser, favorites, setFavorites, toggleFavorites, signup, login, logout}}>
             <Routes>
-              <Route  path='/petlist/:id' element = {<PrivateRoute><BreedDetail /></PrivateRoute>} ></Route>
+              <Route  path='/petlist/:id' element = {<BreedDetail />} ></Route>
               <Route  path="/account/:username" element ={<PrivateRoute><ProfileInfo /></PrivateRoute>}> </Route>       
               <Route  path="/edit" element ={<PrivateRoute><ProfileForm /></PrivateRoute>}> </Route>                
               <Route  path="/" element={<Homepage/>}></Route>
