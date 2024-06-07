@@ -88,7 +88,7 @@ function ProfileForm() {
                 <p> Change account info </p>
               </div>
               <div className="form-group">
-                <label for="firstName">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 <input
                     name="firstName"
                     id="firstName"
@@ -97,7 +97,7 @@ function ProfileForm() {
                 />
               </div>
               <div  className="form-group">
-                <label for="lastName">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                     name="lastName"
                     id="lastName"
@@ -106,7 +106,7 @@ function ProfileForm() {
                 />
               </div>
               <div  className="form-group">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                     name="email"
                     id="email"
@@ -115,7 +115,7 @@ function ProfileForm() {
                 />
               </div>
               <div className="form-group">
-                <label for="userlocation">User Location</label>
+                <label htmlFor="userlocation">User Location</label>
                 <input
                     name="userlocation"
                     id="userlocation"
@@ -124,7 +124,7 @@ function ProfileForm() {
                 />
               </div>
               <div className="form-group">
-                <label for="password">Confirm password to make changes:</label>
+                <label htmlFor="password">Confirm password to make changes:</label>
                 <input
                     type="password"
                     name="password"

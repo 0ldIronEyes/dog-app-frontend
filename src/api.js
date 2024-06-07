@@ -12,7 +12,7 @@ class DogBreedApi {
   static token;
 
   static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
+    //console.debug("API Call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${DogBreedApi.token}` };
@@ -100,11 +100,11 @@ class DogBreedApi {
 
   /** Get dog breed info stored in server database */
   static async getDogBreed(breed) {
-    let res = await this.request(`breeds/get/${breed}`);
-    return res.breedinfo;
+    let res = await axios.get(`${BASE_URL}/breeds/get/${breed}`);
+    return res.data.breedinfo;
   }
 
-
+  
 
   
   /** query dogbreeddbapi to filter based on height */
@@ -155,7 +155,7 @@ class DogBreedApi {
     static async getByName(name)
     {
       try {
-        const response = await axios.get(`${BASE_URL}/breeds/get`, {
+        const response = await axios.get(`${BASE_URL}/breeds/names`, {
             params: {search: name} 
           });
        return response.data;

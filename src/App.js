@@ -25,7 +25,7 @@ function App() {
   const [favorites, setFavorites] = useState(new Set([]));
 
   useEffect(function loadUserInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
+
 
     async function getCurrentUser() {
       if (token) {
@@ -60,7 +60,7 @@ function App() {
                    toggleFavorites: (breed, life, height, weight) => toggleFavorites(currentUser, favorites, setFavorites, breed, life, height, weight), 
                    signup: (data) => signup(data, setToken), 
                    login: (data) => login(data, setToken), 
-                   logout }}>
+                   logout: ()=> logout(setCurrentUser, setToken) }}>
           <Routes>
             <Route path='/petlist/:id' element={<BreedDetail />} ></Route>
             <Route path="/account/:username" element={<PrivateRoute><ProfileInfo /></PrivateRoute>}></Route>       
