@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import App, { TOKEN_STORAGE_ID } from './App.jsx';
+import App, { TOKEN_STORAGE_ID } from './App.js';
 import DogBreedApi from './api';
 import UserContext from './UserContext';
 

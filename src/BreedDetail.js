@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import DogBreedApi from './api.js';
 import { useParams, Link, redirect } from 'react-router-dom';
-import LocationSearchForm from './locationSearchForm.jsx';
-import PetSearch from './PetSearch.jsx';
-import UserContext from "./UserContext";
+import LocationSearchForm from './locationSearchForm.js';
+import PetSearch from './PetSearch.js';
+import UserContext from "./UserContext.js";
 import "./style.css";
 import defaultImage from './assets/dog_icon.png';
 

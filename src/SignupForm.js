@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import UserContext from "./UserContext";
+import UserContext from "./UserContext.js";
 import { useNavigate } from "react-router-dom";
-import Alert from "./Alert.jsx";
+import Alert from "./Alert.js";
 import "./loginform.css";
 
 /** Signup form.

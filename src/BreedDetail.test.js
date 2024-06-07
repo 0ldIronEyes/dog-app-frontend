@@ -10,13 +10,13 @@ import UserContext from './UserContext';
 // Mock axios
 jest.mock('axios');
 
-jest.mock('./locationSearchForm.jsx', () => ({ onSubmit }) => (
+jest.mock('./locationSearchForm.js', () => ({ onSubmit }) => (
   <div>
     <input type="text" placeholder="Enter location" />
     <button onClick={() => onSubmit('test-location')}>Search</button>
   </div>
 ));
-jest.mock('./PetSearch.jsx', () => ({ pets, breedName }) => (
+jest.mock('./PetSearch.js', () => ({ pets, breedName }) => (
   <div>
     {pets.length > 0 ? (
       pets.map((pet, index) => <div key={index}>{pet.name}</div>)

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import LoginForm from "./LoginForm.jsx";
-import SignupForm from "./SignupForm.jsx";
-import Navigation from "./Navigation.jsx";
+import LoginForm from "./LoginForm.js";
+import SignupForm from "./SignupForm.js";
+import Navigation from "./Navigation.js";
 import './style.css';
 import bannerimage from './assets/dog_bg.png';
 

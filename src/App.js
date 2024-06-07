@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import useLocalStorage from "./useLocalStorage";
+import useLocalStorage from "./useLocalStorage.js";
 import UserContext from "./UserContext.js";
 import './App.css';
 
 import {jwtDecode } from "jwt-decode";
-import ProfileInfo from "./ProfileInfo.jsx";
-import ProfileForm from "./ProfileForm.jsx";
-import LoadingSpinner from "./LoadingSpinner.jsx";
-import PrivateRoute from "./PrivateRoute.jsx";
-import DogBreedApi from "./api";
-import DogBreedList from './BreedList.jsx';
-import Homepage from "./Homepage.jsx";
-import BreedDetail from "./BreedDetail.jsx";
+import ProfileInfo from "./ProfileInfo.js";
+import ProfileForm from "./ProfileForm.js";
+import LoadingSpinner from "./LoadingSpinner.js";
+import PrivateRoute from "./PrivateRoute.js";
+import DogBreedApi from "./api.js";
+import Homepage from "./Homepage.js";
+import BreedDetail from "./BreedDetail.js";
 
 export const TOKEN_STORAGE_ID = "dog-breed-token";
 
@@ -24,7 +23,7 @@ function App() {
   const [favorites, setFavorites] = useState(new Set([]));
 
   useEffect(function loadUserInfo() {
-    //console.debug("App useEffect loadUserInfo", "token=", token);
+    console.debug("App useEffect loadUserInfo", "token=", token);
 
     async function getCurrentUser() {
       if (token) {
@@ -34,8 +33,10 @@ function App() {
           let currentUser = await DogBreedApi.getCurrentUser(username);
           setCurrentUser(currentUser);
           setFavorites(new Set(currentUser.breeds));
+          setInfoLoaded(true);
         } catch (err) {
-          //console.error("App loadUserInfo: problem loading", err);
+          console.error("App loadUserInfo: problem loading", err);
+          setInfoLoaded(true);
           setCurrentUser(null);
         }
       }
