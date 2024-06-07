@@ -27,7 +27,6 @@ function Homepage() {
   const [minLifeSpan, setMinLifeSpan] = useState(7);
   const [maxWeight, setMaxWeight] = useState(7);
   const [maxHeight, setMaxHeight] = useState(7);
-  const [selectedTab, setSelectedTab] = useState(0); 
 
   async function getByLifeSpan() {
     const dogs = await DogBreedApi.getByLifespan(minLifeSpan);

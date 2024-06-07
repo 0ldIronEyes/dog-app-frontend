@@ -2,7 +2,7 @@
 import axios from "axios";
 
 //const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-const BASE_URL = "https://dog-app-backend.onrender.com";
+const BASE_URL = "http://localhost:3001";
 
 const API_KEY = 'FyGKpuRKqsV5w5M8A3VzaeuL51yB05eIuNKByVDsM526hPD99X';
 const secret = 'kkmUznOGbMAyVPOeoTmgTDJqllXi43MWEPNg3Mvl';
@@ -100,7 +100,7 @@ class DogBreedApi {
 
   /** Get dog breed info stored in server database */
   static async getDogBreed(breed) {
-    let res = await this.request(`breeds/${breed}`);
+    let res = await this.request(`breeds/get/${breed}`);
     return res.breedinfo;
   }
 
@@ -111,7 +111,7 @@ class DogBreedApi {
   static async getByHeight(height)
   {
     try{
-      const response = await axios.get(`${BASE_URL}/api/height`, {
+      const response = await axios.get(`${BASE_URL}/breeds/height`, {
         params: {heightLimit : height} 
       });
       return response.data;
@@ -126,7 +126,7 @@ class DogBreedApi {
   /** query dogbreeddbapi to filter based on weight */
   static async getByWeight(weight){
     try{
-      const response = await axios.get(`${BASE_URL}/api/weight`, {
+      const response = await axios.get(`${BASE_URL}/breeds/weight`, {
         params: {weightLimit : weight} 
       });
       return response.data;
@@ -140,7 +140,7 @@ class DogBreedApi {
   static async getByLifespan(life)
   {
     try{
-      const response = await axios.get(`${BASE_URL}/api/age`, {
+      const response = await axios.get(`${BASE_URL}/breeds/age`, {
         params: {age : life} 
       });
       return response.data;
@@ -155,7 +155,7 @@ class DogBreedApi {
     static async getByName(name)
     {
       try {
-        const response = await axios.get(`${BASE_URL}/api/breeds`, {
+        const response = await axios.get(`${BASE_URL}/breeds/get`, {
             params: {search: name} 
           });
        return response.data;
@@ -168,7 +168,7 @@ class DogBreedApi {
   static async getByID(id)
   {
       try {
-        const response = await axios.get(`${BASE_URL}/api/id`, {
+        const response = await axios.get(`${BASE_URL}/breeds/id`, {
             params: {id : id} 
         });
         return response.data[0];
@@ -181,7 +181,7 @@ class DogBreedApi {
   static async searchForPets(breed, location)
   {
     try {
-      const response = await axios.get(`${BASE_URL}/api/find`,
+      const response = await axios.get(`${BASE_URL}/breeds/find`,
       {
         params: {
           breed: breed,
